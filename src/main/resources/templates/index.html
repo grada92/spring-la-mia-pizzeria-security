@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pizzeria</title>
+<div th:replace="~{fragment :: head}"></div>
+</head>
+<body>
+<h1>LE NOSTRE PIZZE : </h1>
+<div th:if="${elencopizzeria.size()>0}" class="table"  style="list-style:none;"> 
+	<lt th:each="s:${elencopizzeria}" th:with="title=${s.getName() + s.getPrice()}" class="display-6 table">
+		<a th:text="${title}" ></a>
+	</li> 
+</div>
+
+
+<div th:replace="~{fragment :: script}"></div>
+</body>
+</html>
