@@ -4,23 +4,37 @@
 <meta charset="ISO-8859-1">
 <title>Pizzeria</title>
 <div th:replace="~{fragment :: head}"></div>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 class="text-center">LE NOSTRE PIZZE</h1>
+<div class="text-center mt-5">
+<h1 class="my-5 box">LE NOSTRE PIZZE</h1>
+<img class="mt-2" src="https://static.vecteezy.com/system/resources/previews/009/384/620/original/fresh-pizza-and-pizza-box-clipart-design-illustration-free-png.png" alt="pizza" width="350" height="300">
+	<form action="pizzeria" method="get" class="mt-5">
+  		<input type="text" id="keyword" name="keyword" />
+  		<button type="submit">Cerca</button>
+	</form>
 
-	
-	<table th:if="${elencopizzeria.size>0}" class="table table-dark table-borderless">
+</div>
+
+	<table th:if="${elencopizzeria.size>0}" class="table table-dark table-borderless container mt-5">
 		<thead>
-			<tr><th scope="col">#</th>
-				<th scope="col">PIZZE</th>
-				<th scope="col">PREZZO</th>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col"></th>
+				<th scope="col" class="verde">PIZZE</th>
+				<th scope="col" class="verde">PREZZO</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="pizza : ${elencopizzeria}">
 			<th th:text="${pizza.id}"></th>
+			<th>
+				<a class="text-decoration-none text-danger" th:text="VISUALIZZA" th:href="@{'pizzeria/'+ ${pizza.id}}"></a>
+			</th>
 			<th th:text="${pizza.name}"></th>
 			<th th:text="${pizza.price} + ' EURO' "></th>
+			</tr>
 		</tbody>
 	</table>
 
