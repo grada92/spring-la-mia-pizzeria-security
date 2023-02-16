@@ -1,9 +1,15 @@
 package org.corsojava.pizzeria.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 
 @Entity
 
@@ -13,9 +19,18 @@ public class Pizzeria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	
+	
 	private int id;
+	
+	@Size(min = 5, max = 13, message = "non può essere più di 13 caratteri")
+	@NotNull(message="il nome non può essere nullo")
+	@NotEmpty(message="Il nome non deve essere vuoto")
 	private String name;
-	private int price;
+	
+	
+	@NotNull(message="il prezzo non può essere nullo")
+	private BigDecimal price;
+
 	private String photo;
 	
 	public int getId() {
@@ -30,10 +45,10 @@ public class Pizzeria {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	public String getPhoto() {

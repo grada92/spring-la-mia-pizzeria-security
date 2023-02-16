@@ -9,14 +9,17 @@
 <body>
 <div class="text-center mt-5">
 <h1 class="my-5 box">LE NOSTRE PIZZE</h1>
+
 <img class="mt-2" src="https://static.vecteezy.com/system/resources/previews/009/384/620/original/fresh-pizza-and-pizza-box-clipart-design-illustration-free-png.png" alt="pizza" width="350" height="300">
+
 	<form action="pizzeria" method="get" class="mt-5">
   		<input type="text" id="keyword" name="keyword" />
   		<button type="submit">Cerca</button>
 	</form>
-
+	<a class="text-decoration-none btn btn-primary text-center mt-5 " th:href="@{pizzeria/create}" >CREA NUOVA PIZZA</a>
+	
 </div>
-
+	
 	<table th:if="${elencopizzeria.size>0}" class="table table-dark table-borderless container mt-5">
 		<thead>
 			<tr>
@@ -37,7 +40,7 @@
 			</tr>
 		</tbody>
 	</table>
-
+	
 <div th:replace="~{fragment :: script}"></div>
 </body>
 </html>

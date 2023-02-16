@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Crea PIZZA</title>
+<div th:replace="~{fragment :: head}"></div>
+</head>
+<body>
+	<h2 class="text-center mt-3">CREA LA TUA PIZZA</h2>
+	
+		<div class="container">
+	<h1>Nuova Pizza</h1>
+	<hr/>
+	<form id="formPizzeria" th:object="${pizzeria}"
+	  th:action="@{/pizzeria/create}"  method="post">
+	  	<ul>
+	      <li 
+	         th:each="err : ${#fields.allErrors()}" 
+	         th:text="${err}" class="text-danger">
+	      </li>
+  		</ul>
+	  	<div class="row">
+	  	<div class="col-8">
+	  	<label for="id" class="form-label">id</label>
+  		<input type="text" class="form-control" id="id" th:field="*{id}">
+  		
+  		<label for="author" class="form-label">Nome</label>
+  		<input type="text" class="form-control" id="name" th:field="*{name}">
+  		
+	  	<label for="price" class="form-label">Prezzo</label>
+  		<input type="text" class="form-control" id="price" th:field="*{price}">
+  		
+  		<button type="submit" class="btn btn-primary mt-2">Salva</button>
+  		</div>
+  		</div>
+	</form>
+		
+	</div>
+	
+	<div th:replace="~{fragment :: script}"></div>
+</body>
+</html>
