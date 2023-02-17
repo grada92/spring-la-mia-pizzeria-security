@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Crea PIZZA</title>
+<title>Modifica Pizza</title>
 <div th:replace="~{fragment :: head}"></div>
 </head>
 <body
@@ -12,24 +12,27 @@
 			src="https://images.vexels.com/media/users/3/131778/isolated/preview/2f58b79f41ddd2cf40e188c533a7f751-pizza-logo-template.png"
 			width="300">
 	</div>
+	<h2 class="text-center mt-5 text-success">CREA LA TUA PIZZA</h2>
 
 	<div class="container mt-5">
-		<h1 class="text-danger">Nuova Pizza</h1>
+		<h1 class="text-danger">Modifica Pizza</h1>
 		<hr />
 		<form id="formPizzeria" th:object="${pizzeria}"
-			th:action="@{/pizzeria/create}" method="post">
+			th:action="@{/pizzeria/edit/{id}(id=${pizzeria.id})}" method="post">
 			<ul>
 				<li th:each="err : ${#fields.allErrors()}" th:text="${err}"
 					class="text-danger"></li>
 			</ul>
 			<div class="row">
 				<div class="col-8">
+
 					<label for="author" class="form-label">Nome</label> <input
-						type="text" class="form-control" id="name" th:field="*{name}">
-					<label for="price" class="form-label">Prezzo</label> <input
-						type="text" class="form-control" id="price" th:field="*{price}">
-					<label for="photo" class="form-label">Foto</label> <input
-						type="url" class="form-control" id="photo" th:field="*{photo}">
+						type="text" class="form-control" id="name" th:field="*{name}"> <label
+						for="price" class="form-label">Prezzo</label> <input type="text"
+						class="form-control" id="price" th:field="*{price}"> <label
+						for="photo" class="form-label">Foto</label> <input type="url"
+						class="form-control" id="photo" th:field="*{photo}">
+
 					<button type="submit" class="btn btn-danger mt-5">Salva</button>
 					<a class="btn btn-primary mt-5 " th:href="@{/pizzeria}">Annulla</a>
 				</div>

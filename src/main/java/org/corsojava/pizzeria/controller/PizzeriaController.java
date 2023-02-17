@@ -32,7 +32,7 @@ public class PizzeriaController {
 	public String index(@RequestParam(name="keyword", required = false) String keyword,Model model) {		
 		List<Pizzeria> elencopizzeria;
 		
-		if (keyword!=null && !keyword.isEmpty())
+		if (keyword!=null && !keyword.isEmpty()) //RICERCA NOME PIZZA 
 			elencopizzeria = pizzeriarep.findByNameLike("%"+ keyword + "%"); 
 		else
 			elencopizzeria = pizzeriarep.findAll();	
@@ -74,6 +74,40 @@ public class PizzeriaController {
 			
 		
 	}
+	
+	@GetMapping("/edit/{id}") //GESTISCE LE RICHIESTEDEL TIPO /PIZZERIA/EDIT/ID
+	public String edit(@PathVariable("id") Integer id,Model model ) {
+		
+		Pizzeria p;
+		p = pizzeriarep.getReferenceById(id);
+		model.addAttribute("pizzeria", p);
+		
+		return "edit";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String update(
+			@Valid @ModelAttribute Pizzeria formPizzeria,
+			BindingResult bindingResult,
+			Model model) {
+		if(bindingResult.hasErrors())
+			return "edit";
+		
+		pizzeriarep.save(formPizzeria);
+		
+		return "redirect:/pizzeria";
+		
+	}
+	
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Integer id) {
+		
+		pizzeriarep.deleteById(id);
+		
+		return "redirect:/pizzeria";
+	}
+	
+	
 	
 	
 	

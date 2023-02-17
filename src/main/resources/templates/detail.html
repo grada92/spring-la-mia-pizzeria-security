@@ -5,13 +5,21 @@
 <title>Dettaglio</title>
 <div th:replace="~{fragment :: head}"></div>
 </head>
-<body>
-<div class="text-center mt-5">
-	<h2 th:text="${detail.name}"> </h2> 
-	<h2 th:text="'Prezzo: ' + ${detail.price} + ' EURO'" class="text-uppercase"> </h2> 
+<body
+	style="background-image: url('https://images.pexels.com/photos/3761662/pexels-photo-3761662.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1'); background-repeat: no-repeat; background-size: cover;">
+	<div class="text-center">
+		<img
+			src="https://images.vexels.com/media/users/3/131778/isolated/preview/2f58b79f41ddd2cf40e188c533a7f751-pizza-logo-template.png"
+			width="300">
+	</div>
+	<div class="text-center mt-1 text-danger">
+		<h2 th:text="${detail.name}"></h2>
+		<h2 th:text="'Prezzo: ' + ${detail.price} + ' EURO'"
+			class="text-uppercase text-danger"></h2>
+			<img th:src="${detail.photo}" class="img-detail rounded-5 border border-dark" width="400">
 
-</div>
+	</div>
 
-<div th:replace="~{fragment :: script}"></div>
+	<div th:replace="~{fragment :: script}"></div>
 </body>
 </html>
