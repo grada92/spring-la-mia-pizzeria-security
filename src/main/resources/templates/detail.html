@@ -29,6 +29,7 @@
 						<td>Data Fine</td>
 						<td>Tipo di Pizza</td>
 						<td>Titolo</td>
+						<td></td>
 					</tr>
 				</thead>	
 				
@@ -39,6 +40,7 @@
 						<td th:text="${Discount.EndDiscountDate}"></td>
 						<td th:text="${detail.name}"></td>
 						<td th:text="${Discount.Titolo}"></td>
+						<td><a class="btn btn-primary px- mx-2" th:href="@{'/discount/edit/{id}'(id=${Discount.id})}">Modifica</a></td>
 					</tr>
 				
 				
