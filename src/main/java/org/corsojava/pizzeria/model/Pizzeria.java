@@ -1,11 +1,13 @@
 package org.corsojava.pizzeria.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -33,8 +35,18 @@ public class Pizzeria {
 
 	private String photo;
 	
+	
+	@OneToMany (mappedBy = "pizzeria") // si riferisce al ManytoOne di pizzeria presente in Discount
+	private List<Discount> Discounts;
+	
 	public int getId() {
 		return id;
+	}
+	public List<Discount> getDiscounts() {
+		return Discounts;
+	}
+	public void setDiscounts(List<Discount> Discounts) {
+		this.Discounts = Discounts;
 	}
 	public void setId(int id) {
 		this.id = id;

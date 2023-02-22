@@ -17,6 +17,41 @@
 		<h2 th:text="'Prezzo: ' + ${detail.price} + ' EURO'"
 			class="text-uppercase text-danger"></h2>
 			<img th:src="${detail.photo}" class="img-detail rounded-5 border border-dark" width="400">
+			
+			<table th:if="${detail.Discounts.size()>0}" class="table text-white">
+				<thead>
+				
+				
+					<tr>
+					
+						<td>Id</td>
+						<td>Data Inizio</td>
+						<td>Data Fine</td>
+						<td>Tipo di Pizza</td>
+						<td>Titolo</td>
+					</tr>
+				</thead>	
+				
+				<tbody>
+					<tr th:each="Discount : ${detail.Discounts}" class="text-white">
+						<td th:text="${Discount.id}"></td>
+						<td th:text="${Discount.StartDiscountDate}"></td>
+						<td th:text="${Discount.EndDiscountDate}"></td>
+						<td th:text="${Discount.id}"></td>
+						<td th:text="${Discount.Titolo}"></td>
+					</tr>
+				
+				
+				</tbody>
+			
+			
+			
+			
+			
+			
+			</table>
+			
+			
 
 	</div>
 
