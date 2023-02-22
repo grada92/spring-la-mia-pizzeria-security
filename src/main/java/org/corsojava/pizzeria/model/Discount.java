@@ -75,7 +75,7 @@ public class Discount {
 
 	private String Titolo;
 	
-	
+	@NotNull
 	@ManyToOne					// più istanze di Discount associate ad un'istanza di pizza
 	private Pizzeria pizzeria;  // ad ogni pizza venduta 
 	

@@ -37,7 +37,7 @@
 						<td th:text="${Discount.id}"></td>
 						<td th:text="${Discount.StartDiscountDate}"></td>
 						<td th:text="${Discount.EndDiscountDate}"></td>
-						<td th:text="${Discount.id}"></td>
+						<td th:text="${detail.name}"></td>
 						<td th:text="${Discount.Titolo}"></td>
 					</tr>
 				
@@ -52,7 +52,7 @@
 			</table>
 			
 			
-
+			<button class="btn-danger btn"><a class="text-decoration-none text-white" th:href="@{'/discount/create?id='+ ${detail.id}}">Crea Nuova offerta</a></button>
 	</div>
 
 	<div th:replace="~{fragment :: script}"></div>

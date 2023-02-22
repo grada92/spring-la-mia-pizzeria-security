@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Crea Discount</title>
+<link th:replace="~{fragment :: head}"></link>
+</head>
+<body>
+	<div class="container">
+		<h1>Nuovo Discount: <span th:text="${discount.pizzeria.name}"></span></h1>
+		<hr/>
+		
+		<div class="row">
+	  	<div class="col-8">
+		<form id="pizzeria-form" 
+			th:action="@{/discount/create}" 
+			method="post"
+			th:object="${discount}">
+			
+			
+			<label class="form-label" for="Titolo">Titolo Discount</label>
+			<input class="form-control" id="Titolo" th:field="*{Titolo}" type="text" th:errorClass="is-invalid">
+			
+			<input type="hidden" th:field="${discount.pizzeria}">
+			<label class="form-label" for="StartDiscountDate">Inizio Data Sconto</label>
+			<input class="form-control" id="StartDiscountDate" th:field="*{StartDiscountDate}" type="date" th:errorClass="is-invalid">
+			
+			<input type="hidden" th:field="${discount.pizzeria}">
+			<label class="form-label" for="EndDiscountDate">Fine Data Sconto</label>
+			<input class="form-control" id="EndDiscountDate" th:field="*{EndDiscountDate}" type="date" th:errorClass="is-invalid">
+		
+			
+			<button type="submit" class="btn btn-primary">Salva</button>
+		  	<a class="btn btn-primary" th:href="@{/pizzeria}">Annulla</a>
+		
+		
+		</form>
+		
+	  	
+
+<script th:replace="~{fragment:: script}"></script>
+</body>
+</html>
