@@ -46,7 +46,7 @@ public class DiscountController {
 		return "createD";
 	}
 	
-	@PostMapping("/create")  	//gestirà le richieste di tipo POST di tipo /borrowings/create
+	@PostMapping("/create")  	//gestirà le richieste di tipo POST di tipo /discount/create
 	public String store(
 		@Valid @ModelAttribute("discount") Discount formDiscount, 
 		BindingResult bindingResult,

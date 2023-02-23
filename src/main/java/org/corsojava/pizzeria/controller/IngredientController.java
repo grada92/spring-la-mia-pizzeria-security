@@ -32,7 +32,7 @@ public class IngredientController {
 		return "indexIng";
 	}
 
-	@GetMapping("/create")		//gestirà le richieste GET di tipo /categories/create
+	@GetMapping("/create")	
 	public String create(Model model) {
 		Ingredient ingredient =new Ingredient();	//non esiste ancora sul DB
 
@@ -41,7 +41,7 @@ public class IngredientController {
 		return "createIng";
 	}
 
-	@PostMapping("/create")  	//gestirà le richieste di tipo POST di tipo /books/create
+	@PostMapping("/create")  // /ingredienties/create
 	public String store(
 		@Valid @ModelAttribute("ingredienti") Ingredient formIngredient, 
 		BindingResult bindingResult,

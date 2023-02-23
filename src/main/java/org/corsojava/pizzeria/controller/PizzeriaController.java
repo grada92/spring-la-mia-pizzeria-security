@@ -92,7 +92,7 @@ public class PizzeriaController {
 		model.addAttribute("ingredienti", IngredientList);
 		model.addAttribute("pizzeria", p);
 		
-
+	
 		return "edit";
 	}
 	
