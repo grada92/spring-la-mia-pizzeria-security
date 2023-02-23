@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Elenco Ingredienti</title>
+
+<link th:replace="~{fragment :: head}"></link>
+</head>
+<body>
+<div class="container">
+	<a class="btn btn-primary" th:href="@{/ingredienties/create}"><i class="fas fa-plus"></i>Nuovo Ingrediente</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Nome</td>	
+				<td></td>			
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ingredienties : ${ingredienti}">
+				<td>
+				<a th:text="${ingredienties.id}" th:href="@{'ingredienties/'+ ${ingredienties.id}}"></a>
+				</td>
+				<td th:text="${ingredienties.name}"></td>
+				<td>
+					<form action="#" th:action="@{'/ingredienties/delete/{id}'(id=${ingredienties.id})}" method="post">
+					  <button class="btn btn-primary" type="submit" id="submitButton">
+					    <i class="fas fa-trash-alt"></i>
+					  </button>
+					</form>
+				</td>
+				
+			</tr>
+		</tbody>
+		
+		
+	</table>
+	
+	<a class="btn btn-danger" th:href="@{/pizzeria}"></i>Torna alla Home</a>
+	</div>
+	<script th:replace="~{fragment :: script}"></script>
+</body>
+</html>

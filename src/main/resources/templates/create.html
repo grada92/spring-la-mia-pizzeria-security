@@ -33,6 +33,15 @@
 					<button type="submit" class="btn btn-danger mt-5">Salva</button>
 					<a class="btn btn-primary mt-5 " th:href="@{/pizzeria}">Annulla</a>
 				</div>
+				
+				<h3>Ingredienti:</h3>
+	  			<div th:each="ingredienties : ${ingredienti}" class="form-check">
+	  				<input type="checkbox" class="form-check-input" 
+	  					th:value="${ingredienties.id}" th:field="*{ingredienties}"
+	  					th:id="|ingredienties_${ingredienties.id}">
+	  				<label class="form-check-label" 
+	  				th:text="${ingredienties.name}" th:for="|ingredienties_${ingredienties.id}"></label>
+	  			</div>
 			</div>
 		</form>
 

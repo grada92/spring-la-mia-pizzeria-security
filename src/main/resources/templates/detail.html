@@ -43,20 +43,22 @@
 						<td><a class="btn btn-primary px- mx-2" th:href="@{'/discount/edit/{id}'(id=${Discount.id})}">Modifica</a></td>
 					</tr>
 				
-				
-				</tbody>
-			
-			
-			
-			
-			
-			
+		
+
+			</tbody>
+
 			</table>
+			
+			<h1>INGREDIENTI:</h1>
+				<div th:each="ingredienties: ${detail.Ingredienties}" >
+					<span th:text="${ingredienties.name}" class="text-white"></span>
+				
+				</div>
 			
 			
 			<button class="btn-danger btn"><a class="text-decoration-none text-white" th:href="@{'/discount/create?id='+ ${detail.id}}">Crea Nuova offerta</a></button>
 	</div>
-
+			<a class="btn btn-danger" th:href="@{/pizzeria}"></i>Torna alla Home</a>
 	<div th:replace="~{fragment :: script}"></div>
 </body>
 </html>

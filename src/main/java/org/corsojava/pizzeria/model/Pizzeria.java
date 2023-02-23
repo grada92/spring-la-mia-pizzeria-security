@@ -3,10 +3,12 @@ package org.corsojava.pizzeria.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -75,7 +77,17 @@ public class Pizzeria {
 	}
 	
 	
+	public List<Ingredient> getIngredienties() {
+		return ingredienties;
+	}
+	public void setIngredienties(List<Ingredient> ingredienties) {
+		this.ingredienties = ingredienties;
+	}
+
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Ingredient> ingredienties;
 	
 	
-	
+		
 }

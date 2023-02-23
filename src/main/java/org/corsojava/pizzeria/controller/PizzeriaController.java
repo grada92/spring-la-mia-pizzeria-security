@@ -2,7 +2,9 @@ package org.corsojava.pizzeria.controller;
 
 import java.util.List;
 
+import org.corsojava.pizzeria.model.Ingredient;
 import org.corsojava.pizzeria.model.Pizzeria;
+import org.corsojava.pizzeria.repository.IngredientRepository;
 import org.corsojava.pizzeria.repository.PizzeriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,9 @@ public class PizzeriaController {
 	
 	@Autowired
 	PizzeriaRepository pizzeriarep ;
+	
+	@Autowired
+	IngredientRepository ingredientrep;
 	
 	
 	@GetMapping	
@@ -53,8 +58,11 @@ public class PizzeriaController {
 	public String create(Model model) {
 
 		Pizzeria p = new Pizzeria();
+		
+		List<Ingredient> IngredientList=ingredientrep.findAll();
 		p.setName("Inserisci Nome Pizza");
 		model.addAttribute("pizzeria", p);
+		model.addAttribute("ingredienti", IngredientList);
 		return "create";
 	}
 	
@@ -79,9 +87,12 @@ public class PizzeriaController {
 	public String edit(@PathVariable("id") Integer id,Model model ) {
 		
 		Pizzeria p;
+		List<Ingredient> IngredientList=ingredientrep.findAll();
 		p = pizzeriarep.getReferenceById(id);
+		model.addAttribute("ingredienti", IngredientList);
 		model.addAttribute("pizzeria", p);
 		
+
 		return "edit";
 	}
 	
