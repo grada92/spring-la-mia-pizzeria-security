@@ -2,6 +2,8 @@ package org.corsojava.pizzeria.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -77,6 +79,7 @@ public class Discount {
 	
 	@NotNull
 	@ManyToOne					// più istanze di Discount associate ad un'istanza di pizza
+	@JsonBackReference
 	private Pizzeria pizzeria;  // ad ogni pizza venduta 
 	
 }
