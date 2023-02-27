@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pizzeria</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body
+	style="background-image: url('https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1'); background-repeat: no-repeat; background-size: cover;">
+	<div class="text-center">
+		<img
+			src="https://images.vexels.com/media/users/3/131778/isolated/preview/2f58b79f41ddd2cf40e188c533a7f751-pizza-logo-template.png"
+			width="300">
+	</div>
+	<div class="container d-flex justify-content-between">
+
+		<a class="text-decoration-none btn btn-success mt-5 "
+			href="./create.html">CREA NUOVA PIZZA</a>
+			
+			<a class="text-decoration-none btn btn-danger mt-5 "
+			href="@{ingredienties}">CREA NUOVO INGREDIENTE</a>
+
+
+
+		<form action="pizzeria" method="get" class="mt-5">
+			<input type="text" id="keyword" name="keyword" />
+			<button type="submit">Cerca</button>
+		</form>
+
+	</div>
+
+	<table class="table"
+		class="table table-striped table-dark container mt-3">
+		<thead>
+			<tr>
+				<th width="150" scope="col"></th>
+				<th width="600" scope="col" class="verde">PIZZE</th>
+				<th width="500" scope="col" class="verde">PREZZO</th>
+				<th width="150" scope="col"></th>
+
+				
+			</tr>
+		</thead>
+		<tbody id="pizzeria">
+			
+            
+
+		</tbody>
+	</table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script/index.js"></script>
+</body>
+</html>
